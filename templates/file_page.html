@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tfidf table</title>
+</head>
+<style>
+    .tables {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    table {
+        border: solid black;
+        padding: 8px;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+</style>
+<body>
+<h1>Files is successfully uploaded!</h1>
+<div class="tables">
+    {% for analyse in files_analysis %}
+        <table>
+            <caption><h2>File "{{ analyse.filename }}"</h2></caption>
+            <thead>
+            <tr>
+                <th>Word</th>
+                <th>TF</th>
+                <th>IDF</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for data in analyse.tfidf_data %}
+                <tr>
+                    <td>{{ data.word }}</td>
+                    <td>{{ data.tf }}</td>
+                    <td>{{ data.idf }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    {% endfor %}
+</div>
+</body>
+</html>
