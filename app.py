@@ -1,15 +1,11 @@
 from dataclasses import dataclass
 from typing import Iterable
-from xml.dom.expatbuilder import DOCUMENT_NODE
 
-from flask import Flask, render_template, request, redirect, flash
+from flask import Flask, render_template, request, redirect
 from numpy.random.mtrand import Sequence
+from sklearn.feature_extraction.text import TfidfVectorizer
 from werkzeug.datastructures import FileStorage
 from werkzeug.utils import secure_filename
-from sklearn.feature_extraction.text import TfidfVectorizer
-import pandas as pd
-from pandas import DataFrame
-from numpy.typing import NDArray
 
 app = Flask(__name__)
 
